@@ -1,11 +1,13 @@
 import classes from "./Card.module.css";
-const Card = () => {
+const Card = ({ memory }) => {
   return (
     <div className={classes.card}>
-      <div className={classes.title}>제목 / 날짜</div>
+      <div className={classes.title}>
+        {memory.title} / {memory.date}
+      </div>
       <p>이미지</p>
 
-      <span>내용</span>
+      <span>{memory.content}</span>
     </div>
   );
 };
