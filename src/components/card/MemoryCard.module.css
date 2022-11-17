@@ -9,7 +9,7 @@
   width: 700px;
   z-index: 2;
   position: absolute;
-  margin-left: 190px;
+  margin-left: 450px;
 }
 
 /* 모달창 내부 X버튼 */
@@ -27,4 +27,9 @@
   height: 100vh;
   top: 0;
   left: 0;
+}
+
+.deleteBtn {
+  display: flex;
+  float: right;
 }

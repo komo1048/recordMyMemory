@@ -2,17 +2,17 @@ import { useState } from "react";
 import Backdrop from "./Backdrop";
 import classes from "./Card.module.css";
 import MemoryCard from "./MemoryCard";
-const Card = ({ memory }) => {
+
+const Card = ({ memory, deleteMemory }) => {
   const [openCard, setOpenCard] = useState(false);
   const onOpenCard = () => {
-    console.log("open the card");
     setOpenCard((prevState) => !prevState);
   };
 
   return (
     <>
-      <div className={classes.card}>
-        <p onClick={onOpenCard}>이미지</p>
+      <div className={classes.card} onClick={onOpenCard}>
+        <span className={classes.img}>이미지 </span>
       </div>
       {openCard && (
         <>
@@ -20,6 +20,7 @@ const Card = ({ memory }) => {
             viewMemory={memory}
             isOpen={openCard}
             onRequestClose={onOpenCard}
+            deleteMemory={deleteMemory}
           />
           <Backdrop onClick={onOpenCard} />
         </>

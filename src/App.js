@@ -12,12 +12,26 @@ function App() {
       return [...prevMemory, { ...item }];
     });
   };
+
+  const onDeleteMemory = (memoryId) => {
+    console.log(memoryId);
+    setMemoryList((prevMemory) => {
+      return prevMemory.filter((item) => item.id !== memoryId);
+    });
+  };
   return (
     <>
       <CreateButton onAddMemory={onAddMemory} />
       <div className={classes.container}>
         {memoryList.map((memory) => {
-          return <Card key={memory.date} memory={memory} />;
+          return (
+            <Card
+              key={memory.date}
+              id={memory.date}
+              memory={memory}
+              deleteMemory={onDeleteMemory}
+            />
+          );
         })}
       </div>
     </>

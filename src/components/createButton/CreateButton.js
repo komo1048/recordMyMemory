@@ -17,6 +17,7 @@ const CreateButton = ({ onAddMemory }) => {
 
     onAddMemory({
       title: inputTitle.current.value,
+      id: inputDate.current.value,
       date: inputDate.current.value,
       content: inputContent.current.value,
     });
