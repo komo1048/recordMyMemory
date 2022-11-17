@@ -20,8 +20,8 @@ function App() {
     });
   };
   return (
-    <>
-      <CreateButton onAddMemory={onAddMemory} />
+    <div className={classes.box}>
+      <CreateButton onAddMemory={onAddMemory} className={classes.creatBtn} />
       <div className={classes.container}>
         {memoryList.map((memory) => {
           return (
@@ -34,7 +34,7 @@ function App() {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 Modal.setAppElement("#root");

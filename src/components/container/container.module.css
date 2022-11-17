@@ -5,11 +5,26 @@
   width: 80%;
   height: 80%;
   position: fixed;
+  border-radius: 10px;
 
   top: 100px;
   left: 150px;
+  background-color: #faf7f0;
 
   float: left;
 
   padding: 15px 10px;
+
+  box-shadow: 5px 5px 5px 5px gray;
+}
+
+.box {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #98a8f8;
+}
+
+body {
+  margin: 0;
 }

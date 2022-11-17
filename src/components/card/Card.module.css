@@ -7,7 +7,7 @@
   transition: all 0.2s linear;
   cursor: pointer;
 
-  --c: #f2a8f5; /* the color */
+  --c: #bccef8; /* the color */
   --b: 0.1em; /* border length*/
   --d: 20px; /* the cube depth */
 

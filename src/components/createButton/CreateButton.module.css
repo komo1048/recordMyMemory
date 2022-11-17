@@ -1,3 +1,7 @@
 .button {
   display: flex;
+  float: right;
+
+  margin-right: 13rem;
+  margin-top: 3rem;
 }
