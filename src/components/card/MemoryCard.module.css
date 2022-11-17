@@ -1,0 +1,30 @@
+/* 모달창을 화면 중앙. 최상단에 노출 */
+.container {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  text-align: center;
+  height: 600px;
+  width: 700px;
+  z-index: 2;
+  position: absolute;
+  margin-left: 190px;
+}
+
+/* 모달창 내부 X버튼 */
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
