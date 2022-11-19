@@ -8,8 +8,7 @@
   height: 600px;
   width: 700px;
   z-index: 2;
-  position: absolute;
-  margin-left: 450px;
+  position: relative;
 }
 
 /* 모달창 내부 X버튼 */

@@ -1,7 +1,74 @@
 .button {
   display: flex;
   float: right;
+  border-radius: 5px;
+  border: none;
+  padding: 15px 30px;
+  margin-right: 13.4rem;
+  margin-top: 2rem;
+  background-color: #6f38c5;
+  color: #fdfdfd;
+  transition: 0.25s;
+}
+.button:hover {
+  cursor: pointer;
+  letter-spacing: 2px;
+  transform: scale(1.2);
+}
 
-  margin-right: 13rem;
-  margin-top: 3rem;
+.modal {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  text-align: center;
+  height: 600px;
+  width: 700px;
+  z-index: 2;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.modalContainer {
+  margin: 0 auto;
+}
+
+label {
+  float: left;
+  font-weight: bold;
+}
+
+.post_content dl.meta {
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.post_content > * {
+  border-bottom: 1px solid #d8d8d8;
+  padding: 1rem;
+}
+
+.post_content dl.meta dt {
+  display: table-cell;
+  width: 14%;
+  font-weight: bold;
+}
+.post_content dl.meta dd {
+  display: table-cell;
+  float: left;
+}
+
+input {
+  height: 1.5rem;
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
+}
+
+textarea {
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
 }

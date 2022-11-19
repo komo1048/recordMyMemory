@@ -48,3 +48,7 @@
     0% 100%
   );
 }
+
+.memoryCardContainer {
+  margin: 0 auto;
+}

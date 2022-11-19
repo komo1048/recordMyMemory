@@ -12,10 +12,12 @@ const Card = ({ memory, deleteMemory }) => {
   return (
     <>
       <div className={classes.card} onClick={onOpenCard}>
-        <span className={classes.img}>이미지 </span>
+        <span className={classes.img}>
+          <img src={memory.image} alt="" />
+        </span>
       </div>
       {openCard && (
-        <>
+        <div className={classes.memoryCardContainer}>
           <MemoryCard
             viewMemory={memory}
             isOpen={openCard}
@@ -23,7 +25,7 @@ const Card = ({ memory, deleteMemory }) => {
             deleteMemory={deleteMemory}
           />
           <Backdrop onClick={onOpenCard} />
-        </>
+        </div>
       )}
     </>
   );

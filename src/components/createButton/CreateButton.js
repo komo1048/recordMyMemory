@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import Modal from "react-modal";
+import Backdrop from "../card/Backdrop";
 import classes from "./CreateButton.module.css";
 
 const CreateButton = ({ onAddMemory }) => {
@@ -7,19 +7,31 @@ const CreateButton = ({ onAddMemory }) => {
   const inputTitle = useRef();
   const inputDate = useRef();
   const inputContent = useRef();
+  const [imagePreview, setImagePreview] = useState("");
 
   const onModalOpen = () => {
     setOpenModal((prevState) => !prevState);
   };
 
+  const imageHandler = (e) => {
+    let reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+    reader.onloadend = () => {
+      const resultImage = reader.result;
+      setImagePreview(resultImage);
+    };
+  };
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
-
     onAddMemory({
       title: inputTitle.current.value,
-      id: inputDate.current.value,
       date: inputDate.current.value,
       content: inputContent.current.value,
+      image: imagePreview,
     });
     setOpenModal((prevState) => !prevState);
   };
@@ -29,37 +41,67 @@ const CreateButton = ({ onAddMemory }) => {
       <button className={classes.button} onClick={onModalOpen}>
         작성하기
       </button>
-      <Modal
-        isOpen={openModal}
-        onRequestClose={onModalOpen}
-        className={classes.modal}
-      >
-        <form onSubmit={onSubmitHandler}>
-          <div>
-            <label htmlFor="inputTitle">제목 : </label>
-            <input
-              type="text"
-              className={classes.inputTitle}
-              id="inputTitle"
-              ref={inputTitle}
-            />
+      {openModal && (
+        <div className={classes.modalContainer}>
+          <div
+            isOpen={openModal}
+            onRequestClose={onModalOpen}
+            className={classes.modal}
+          >
+            <form onSubmit={onSubmitHandler}>
+              <article className={classes.post_content}>
+                <dl className={classes.meta}>
+                  <dt>
+                    <label htmlFor="inputTitle">제목 : </label>
+                  </dt>
+                  <dd>
+                    <input
+                      type="text"
+                      className={classes.inputTitle}
+                      id="inputTitle"
+                      ref={inputTitle}
+                      placeholder="제목을 입력해주세요."
+                    />
+                  </dd>
+                </dl>
+                <dl className={classes.meta}>
+                  <dt>
+                    <label htmlFor="inputDate">날짜 : </label>
+                  </dt>
+                  <dd>
+                    <input type="date" id="inputDate" ref={inputDate} />
+                  </dd>
+                </dl>
+                <dl className={classes.meta}>
+                  <dt>
+                    <label htmlFor="inputImg">이미지 : </label>
+                  </dt>
+                  <dd>
+                    <input type="file" id="inputImg" onChange={imageHandler} />
+                  </dd>
+                </dl>
+                <dl className={classes.meta}>
+                  <dt>
+                    <label htmlFor="inputContent">내용 : </label>
+                  </dt>
+                  <dd>
+                    <textarea
+                      id="inputContent"
+                      rows="5"
+                      cols="54"
+                      ref={inputContent}
+                      placeholder="내용을 입력해주세요."
+                    ></textarea>
+                  </dd>
+                </dl>
+              </article>
+              <button>작성</button>
+              <button onClick={onModalOpen}>모달 닫기</button>
+            </form>
           </div>
-          <div>
-            <label htmlFor="inputDate">날짜 : </label>
-            <input type="date" id="inputDate" ref={inputDate} />
-          </div>
-          <div>
-            <label htmlFor="inputImg">이미지 첨부 : </label>
-            <input type="file" id="inputImg" />
-          </div>
-          <div>
-            <label htmlFor="inputContent">내용 : </label>
-            <textarea id="inputContent" ref={inputContent}></textarea>
-          </div>
-          <button>작성</button>
-          <button onClick={onModalOpen}>모달 닫기</button>
-        </form>
-      </Modal>
+          <Backdrop onClick={onModalOpen} />
+        </div>
+      )}
     </>
   );
 };

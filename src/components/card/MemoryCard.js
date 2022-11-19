@@ -13,7 +13,9 @@ const MemoryCard = ({ viewMemory, onRequestClose, deleteMemory }) => {
       <div>
         {viewMemory.title} / {viewMemory.date}
       </div>
-      <p>이미지</p>
+      <div>
+        <img src={viewMemory.image} alt="" />
+      </div>
       <div>{viewMemory.content}</div>
     </div>
   );
