@@ -25,9 +25,10 @@
   height: 600px;
   width: 700px;
   z-index: 2;
-  position: relative;
+  position: absolute;
   margin: 0 auto;
   margin-top: 100px;
+  margin-left: 550px;
 }
 
 .modalContainer {

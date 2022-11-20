@@ -1,6 +1,6 @@
 .card {
   width: 150px;
-  height: 250px;
+  height: 230px;
 
   margin-left: 16px;
   margin-top: 55px;
@@ -51,4 +51,9 @@
 
 .memoryCardContainer {
   margin: 0 auto;
+  position: absolute;
+}
+
+.img {
+  overflow: hidden;
 }

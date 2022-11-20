@@ -10,13 +10,13 @@ const MemoryCard = ({ viewMemory, onRequestClose, deleteMemory }) => {
       <button className={classes.deleteBtn} onClick={onMemoryCardDelete}>
         삭제
       </button>
-      <div>
+      <div className={classes.title}>
         {viewMemory.title} / {viewMemory.date}
       </div>
-      <div>
+      <div className={classes.image}>
         <img src={viewMemory.image} alt="" />
       </div>
-      <div>{viewMemory.content}</div>
+      <div className={classes.content}>{viewMemory.content}</div>
     </div>
   );
 };

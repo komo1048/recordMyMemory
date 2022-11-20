@@ -1,6 +1,6 @@
 import CreateButton from "./components/createButton/CreateButton";
 import Card from "./components/card/Card";
-import classes from "./components/container/container.module.css";
+import classes from "./components/container/Container.module.css";
 import Modal from "react-modal";
 import { useCallback, useEffect, useState } from "react";
 
@@ -64,7 +64,7 @@ function App() {
 
   return (
     <div className={classes.box}>
-      <CreateButton onAddMemory={onAddMemory} className={classes.creatBtn} />
+      <CreateButton onAddMemory={onAddMemory} />
       <div className={classes.container}>
         {memoryList.map((memory) => {
           return (
