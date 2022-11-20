@@ -8,6 +8,7 @@ function App() {
   const [memoryList, setMemoryList] = useState([]);
 
   const fetchMemory = useCallback(async () => {
+    console.log("fetchMemory Running");
     const response = await fetch(
       "https://react-http-38d3b-default-rtdb.firebaseio.com/memory.json"
     );
@@ -25,31 +26,28 @@ function App() {
       });
     }
 
-    setMemoryList(loadedMemory);
+    setMemoryList([...loadedMemory]);
   }, []);
 
-  useEffect(() => {
-    fetchMemory();
-  }, [fetchMemory]);
-
   const onAddMemory = async (item) => {
-    const response = await fetch(
+    console.log("onAddMemory Running");
+    await fetch(
       "https://react-http-38d3b-default-rtdb.firebaseio.com/memory.json",
       {
         body: JSON.stringify(item),
         method: "POST",
         headers: {
-          "Content-Type": "application.json",
+          "Content-Type": "application/x-www-form-urlcoded",
         },
       }
     );
 
-    const data = await response.json();
-
-    setMemoryList((prevMemory) => {
-      return [...prevMemory, { ...data }];
-    });
+    fetchMemory();
   };
+
+  useEffect(() => {
+    fetchMemory();
+  }, [fetchMemory]);
 
   const onDeleteMemory = (memoryId) => {
     console.log(memoryId);
@@ -57,6 +55,7 @@ function App() {
       return prevMemory.filter((item) => item.id !== memoryId);
     });
   };
+
   return (
     <div className={classes.box}>
       <CreateButton onAddMemory={onAddMemory} className={classes.creatBtn} />
