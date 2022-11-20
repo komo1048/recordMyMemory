@@ -3,7 +3,7 @@ import classes from "./MemoryCard.module.css";
 const MemoryCard = ({ viewMemory, onRequestClose, deleteMemory }) => {
   const onMemoryCardDelete = () => {
     onRequestClose();
-    deleteMemory(viewMemory.date);
+    deleteMemory(viewMemory.id);
   };
   return (
     <div onRequestClose={onRequestClose} className={classes.container}>

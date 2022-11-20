@@ -49,11 +49,17 @@ function App() {
     fetchMemory();
   }, [fetchMemory]);
 
-  const onDeleteMemory = (memoryId) => {
+  const onDeleteMemory = async (memoryId) => {
     console.log(memoryId);
-    setMemoryList((prevMemory) => {
-      return prevMemory.filter((item) => item.id !== memoryId);
-    });
+
+    await fetch(
+      `https://react-http-38d3b-default-rtdb.firebaseio.com/memory/${memoryId}.json`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    fetchMemory();
   };
 
   return (
