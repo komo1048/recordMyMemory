@@ -67,12 +67,15 @@ function App() {
       title: memory.title,
       date: memory.date,
       content: memory.content,
-      image: memory.image,
     };
+    if (!!memory.image) {
+      memoryBody.image = memory.image;
+    }
+
     await fetch(
       `https://react-http-38d3b-default-rtdb.firebaseio.com/memory/${memory.id}.json`,
       {
-        method: "PUT",
+        method: "PATCH",
         body: JSON.stringify(memoryBody),
       }
     );
