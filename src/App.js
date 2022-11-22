@@ -62,6 +62,24 @@ function App() {
     fetchMemory();
   };
 
+  const onUpdateMemory = async (memory) => {
+    const memoryBody = {
+      title: memory.title,
+      date: memory.date,
+      content: memory.content,
+      image: memory.image,
+    };
+    await fetch(
+      `https://react-http-38d3b-default-rtdb.firebaseio.com/memory/${memory.id}.json`,
+      {
+        method: "PUT",
+        body: JSON.stringify(memoryBody),
+      }
+    );
+
+    fetchMemory();
+  };
+
   return (
     <div className={classes.box}>
       <CreateButton onAddMemory={onAddMemory} />
@@ -70,9 +88,9 @@ function App() {
           return (
             <Card
               key={memory.id}
-              id={memory.date}
               memory={memory}
               deleteMemory={onDeleteMemory}
+              upDateMemory={onUpdateMemory}
             />
           );
         })}

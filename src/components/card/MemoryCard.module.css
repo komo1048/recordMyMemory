@@ -36,12 +36,11 @@
 
 .title {
   padding: 20px 10px;
-  border-bottom: 1px solid #d8d8d8;
+  margin-left: 68px;
 }
 
 .image {
   padding: 20px 0px;
-  border-bottom: 1px solid #d8d8d8;
   overflow: hidden;
 }
 
@@ -49,10 +48,12 @@
   padding: 20px 10px;
 }
 
-.deleteBtn {
+.deleteBtn,
+.updateBtn {
   display: flex;
   float: right;
   padding: 10px 10px;
+  margin-left: 5px;
   border-radius: 5px;
   border: none;
   background-color: #6f38c5;
@@ -60,6 +61,40 @@
   transition: 0.25s;
 }
 
-.deleteBtn:hover {
+button:hover {
   cursor: pointer;
+}
+
+.post_content dl.meta {
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.post_content > * {
+  border-bottom: 1px solid #d8d8d8;
+  padding: 1rem;
+}
+
+.post_content dl.meta dt {
+  display: table-cell;
+  width: 14%;
+  font-weight: bold;
+}
+.post_content dl.meta dd {
+  display: table-cell;
+  float: left;
+}
+
+input {
+  height: 1.5rem;
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
+}
+
+textarea {
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
 }

@@ -3,7 +3,7 @@ import Backdrop from "./Backdrop";
 import classes from "./Card.module.css";
 import MemoryCard from "./MemoryCard";
 
-const Card = ({ memory, deleteMemory }) => {
+const Card = ({ memory, deleteMemory, upDateMemory }) => {
   const [openCard, setOpenCard] = useState(false);
   const onOpenCard = () => {
     setOpenCard((prevState) => !prevState);
@@ -23,6 +23,7 @@ const Card = ({ memory, deleteMemory }) => {
             isOpen={openCard}
             onRequestClose={onOpenCard}
             deleteMemory={deleteMemory}
+            upDateMemory={upDateMemory}
           />
           <Backdrop onClick={onOpenCard} />
         </div>
