@@ -9,6 +9,13 @@ const Card = ({ memory, deleteMemory, upDateMemory }) => {
     setOpenCard((prevState) => !prevState);
   };
 
+  const cssClasses = [
+    classes.memoryCardContainer,
+    openCard
+      ? classes.memoryCardContainerOpen
+      : classes.memoryCardContainerClose,
+  ];
+
   return (
     <>
       <div className={classes.card} onClick={onOpenCard}>
@@ -17,9 +24,8 @@ const Card = ({ memory, deleteMemory, upDateMemory }) => {
         </span>
       </div>
       {openCard && (
-        <div className={classes.memoryCardContainer}>
+        <div className={cssClasses.join(" ")}>
           <MemoryCard
-            isOpenCard={openCard}
             viewMemory={memory}
             isOpen={openCard}
             onRequestClose={onOpenCard}

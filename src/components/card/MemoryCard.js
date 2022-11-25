@@ -2,16 +2,11 @@ import { useRef, useState } from "react";
 import classes from "./MemoryCard.module.css";
 
 const MemoryCard = ({
-  isOpenCard,
   viewMemory,
   onRequestClose,
   deleteMemory,
   upDateMemory,
 }) => {
-  const cssClasses = [
-    "container",
-    isOpenCard ? "containerOpen" : "containerClose",
-  ];
   const [isUpdate, setIsUpdate] = useState(false);
   const [imagePreview, setImagePreview] = useState("");
 
@@ -56,7 +51,7 @@ const MemoryCard = ({
   let showModal;
   if (isUpdate) {
     showModal = (
-      <div onRequestClose={onRequestClose} className={cssClasses.join(" ")}>
+      <div onRequestClose={onRequestClose} className={classes.container}>
         <form onSubmit={onSubmitHandler}>
           <button type="submit" className={classes.updateBtn}>
             저장
@@ -125,7 +120,7 @@ const MemoryCard = ({
     );
   } else {
     showModal = (
-      <div onRequestClose={onRequestClose} className={cssClasses.join(" ")}>
+      <div onRequestClose={onRequestClose} className={classes.container}>
         <button className={classes.updateBtn} onClick={onMemoryCardUpdate}>
           수정
         </button>

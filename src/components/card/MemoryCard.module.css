@@ -10,31 +10,14 @@
   z-index: 2;
   position: relative;
   margin-left: 500px;
-}
-
-.containerOpen {
   animation: fadeInDown 1s;
 }
-
-/* .containerClose {
-  animation: fadeInDown 1s;
-} */
 
 /* 모달창 내부 X버튼 */
 .close {
   position: absolute;
   right: 10px;
   top: 10px;
-}
-
-.backdrop {
-  position: fixed;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.75);
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
 }
 
 .deleteBtn {
@@ -107,6 +90,16 @@ textarea {
   border: 1px solid #d8d8d8;
 }
 
+.backdrop {
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
 @keyframes fadeInDown {
   0% {
     opacity: 0;
@@ -114,17 +107,6 @@ textarea {
   }
   to {
     opacity: 1;
-    transform: translateZ(0);
-  }
-}
-
-@keyframes fadeOutUp {
-  100% {
-    opacity: 1;
-    transform: translate3d(0, -100%, 0);
-  }
-  to {
-    opacity: 0;
     transform: translateZ(0);
   }
 }

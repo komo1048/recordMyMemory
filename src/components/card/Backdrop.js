@@ -1,11 +1,7 @@
-import "./MemoryCard.module.css";
+import classes from "./MemoryCard.module.css";
 
-const Backdrop = ({ onClick, isOpenCard }) => {
-  const cssClasses = [
-    "backdrop",
-    isOpenCard ? "backdropOpen" : "backdropClose",
-  ];
-  return <div className={cssClasses.join(" ")} onClick={onClick} />;
+const Backdrop = ({ onClick }) => {
+  return <div className={classes.backdrop} onClick={onClick} />;
 };
 
 export default Backdrop;
