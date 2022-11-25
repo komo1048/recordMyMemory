@@ -19,13 +19,14 @@ const Card = ({ memory, deleteMemory, upDateMemory }) => {
       {openCard && (
         <div className={classes.memoryCardContainer}>
           <MemoryCard
+            isOpenCard={openCard}
             viewMemory={memory}
             isOpen={openCard}
             onRequestClose={onOpenCard}
             deleteMemory={deleteMemory}
             upDateMemory={upDateMemory}
           />
-          <Backdrop onClick={onOpenCard} />
+          <Backdrop onClick={onOpenCard} isOpenCard={openCard} />
         </div>
       )}
     </>
