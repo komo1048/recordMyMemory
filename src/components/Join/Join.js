@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./Join.module.css";
 
 const Join = () => {
   const idInputRef = useRef("");
   const passwordInputRef = useRef("");
+  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,7 +27,7 @@ const Join = () => {
     }).then(res => {
       setIsLoading(false);
       if (res.ok) {
-        //...
+        navigate("/login");
       } else {
         return res.json().then(data => {
           let errorMessage = "회원가입에 실패 했습니다. 입력 값을 다시 확인해 주세요.";

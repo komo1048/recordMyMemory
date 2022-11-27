@@ -1,8 +1,10 @@
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./Login.module.css";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const idInputRef = useRef("");
   const passwordInputRef = useRef("");
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +23,7 @@ const Login = () => {
     }).then(res => {
       setIsLoading(false);
       if (res.ok) {
-        // ...
+        navigate("/main");
       } else {
         return res.json().then(data => {
           let errorMessage = "로그인에 실패 했습니다. 입력 값을 다시 확인해 주세요.";
