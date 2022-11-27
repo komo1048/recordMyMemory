@@ -27,24 +27,17 @@
   overflow: hidden;
 }
 
-.id {
-  padding: 20px 55px;
-}
-
-.password {
-  padding: 20px 55px;
-}
-
-.loginBox {
+.loginForm {
   display: flex;
   flex-direction: column;
 
   margin: 150px auto;
 }
 
-.loginBox > input {
+.loginForm > input {
   margin-bottom: 20px;
   font-size: 18px;
+  padding: 20px 55px;
 }
 
 .loginBtn {
@@ -53,4 +46,8 @@
   padding: 15px 0;
   border-radius: 7px;
   border: none;
+}
+
+.joinRedirect {
+  display: contents;
 }

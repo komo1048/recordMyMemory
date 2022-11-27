@@ -27,14 +27,14 @@
   overflow: hidden;
 }
 
-.joinBox {
+.joinForm {
   display: flex;
   flex-direction: column;
 
   margin: 150px auto;
 }
 
-.joinBox > input {
+.joinForm > input {
   margin-bottom: 20px;
   font-size: 18px;
   padding: 20px 55px;
@@ -46,4 +46,8 @@
   padding: 15px 0;
   border-radius: 7px;
   border: none;
+}
+
+.loginRedirect {
+  display: contents;
 }
