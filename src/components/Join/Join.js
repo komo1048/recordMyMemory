@@ -48,12 +48,9 @@ const Join = () => {
           <input type="text" className={classes.id} placeholder="아이디" ref={idInputRef} required />
           <input type="password" className={classes.password} placeholder="비밀번호(6자리 이상 입력해 주세요)" ref={passwordInputRef} required />
           <input type="password" className={classes.password} placeholder="비밀번호확인" />
-          {!isLoading && (
-            <button type="submit" className={classes.joinBtn}>
-              회원가입
-            </button>
-          )}
-          {isLoading && <p>회원가입 확인중 입니다...</p>}
+          <button type="submit" className={classes.joinBtn}>
+            {isLoading ? "회원가입 확인중 입니다..." : "회원가입"}
+          </button>
         </form>
         <Link to="/login" className={classes.loginRedirect}>
           로그인페이지
