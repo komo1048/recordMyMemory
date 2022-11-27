@@ -27,27 +27,20 @@
   overflow: hidden;
 }
 
-.id {
-  padding: 20px 55px;
-}
-
-.password {
-  padding: 20px 55px;
-}
-
-.loginBox {
+.joinBox {
   display: flex;
   flex-direction: column;
 
   margin: 150px auto;
 }
 
-.loginBox > input {
+.joinBox > input {
   margin-bottom: 20px;
   font-size: 18px;
+  padding: 20px 55px;
 }
 
-.loginBtn {
+.joinBtn {
   color: #fff;
   background-color: #4e2bf4;
   padding: 15px 0;

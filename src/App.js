@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import Header from "./components/header/Header";
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/login/Login";
+import Join from "./components/Join/Join";
 
 function App() {
   const [memoryList, setMemoryList] = useState([]);
@@ -79,7 +80,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Login to="/" />} />
+        <Route path="/login" element={<Login to="/login" />} />
         <Route
           path="/main"
           element={
@@ -93,6 +94,7 @@ function App() {
             </div>
           }
         />
+        <Route path="/join" element={<Join />} />
       </Routes>
     </>
   );

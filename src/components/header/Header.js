@@ -5,7 +5,8 @@ const Header = () => {
   return (
     <div className={classes.header}>
       <Link to="/main">메인페이지</Link>
-      <Link to="/">로그인페이지</Link>
+      <Link to="/login">로그인페이지</Link>
+      <Link to="/join">회원가입페이지</Link>
     </div>
   );
 };
