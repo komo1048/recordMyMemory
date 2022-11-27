@@ -1,13 +1,11 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
+import classes from "./Header.module.css";
 
 const Header = () => {
   return (
-    <div>
-      {/* <Routes>
-        <Route path="/" element={<Navigate to="/" />} />
-        <Route paht="/main" element={<Navigate to="/main" />} />
-      </Routes> */}
-      헤더입니다
+    <div className={classes.header}>
+      <Link to="/main">메인페이지</Link>
+      <Link to="/">로그인페이지</Link>
     </div>
   );
 };

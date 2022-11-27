@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import { useCallback, useEffect, useState } from "react";
 import Header from "./components/header/Header";
 import { Route, Routes } from "react-router-dom";
-import Login from "./components/login/Login.js";
+import Login from "./components/login/Login";
 
 function App() {
   const [memoryList, setMemoryList] = useState([]);

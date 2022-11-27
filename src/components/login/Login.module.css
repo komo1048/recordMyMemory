@@ -1,0 +1,56 @@
+.container {
+  border: 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 80%;
+  position: fixed;
+  border-radius: 10px;
+
+  top: 100px;
+  left: 150px;
+  background-color: #faf7f0;
+
+  float: left;
+
+  padding: 15px 10px;
+
+  box-shadow: 5px 5px 5px 5px gray;
+}
+
+.box {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #98a8f8;
+  clear: both;
+  overflow: hidden;
+}
+
+.id {
+  padding: 20px 55px;
+}
+
+.password {
+  padding: 20px 55px;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+
+  margin: 150px auto;
+}
+
+.inputBox > input {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.loginBtn {
+  color: #fff;
+  background-color: #4e2bf4;
+  padding: 15px 0;
+  border-radius: 7px;
+  border: none;
+}
