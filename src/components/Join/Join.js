@@ -28,6 +28,7 @@ const Join = () => {
       setIsLoading(false);
       if (res.ok) {
         navigate("/login");
+        return res.json();
       } else {
         return res.json().then(data => {
           let errorMessage = "회원가입에 실패 했습니다. 입력 값을 다시 확인해 주세요.";

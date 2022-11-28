@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import RecordContext from "../context/record-context";
 import classes from "./Login.module.css";
 
 const Login = () => {
@@ -8,6 +9,8 @@ const Login = () => {
   const idInputRef = useRef("");
   const passwordInputRef = useRef("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const recordCtx = useContext(RecordContext);
 
   const submitHandler = e => {
     e.preventDefault();
@@ -20,21 +23,26 @@ const Login = () => {
         returnSecureToken: true,
       }),
       headers: { "Content-Type": "application/json" },
-    }).then(res => {
-      setIsLoading(false);
-      if (res.ok) {
-        navigate("/main");
-      } else {
-        return res.json().then(data => {
-          let errorMessage = "로그인에 실패 했습니다. 입력 값을 다시 확인해 주세요.";
-          if (data && data.error && data.error.message) {
-            errorMessage = data.error.message;
-          }
+    })
+      .then(res => {
+        setIsLoading(false);
+        if (res.ok) {
+          navigate("/main");
+          return res.json();
+        } else {
+          return res.json().then(data => {
+            let errorMessage = "로그인에 실패 했습니다. 입력 값을 다시 확인해 주세요.";
+            if (data && data.error && data.error.message) {
+              errorMessage = data.error.message;
+            }
 
-          alert(errorMessage);
-        });
-      }
-    });
+            alert(errorMessage);
+          });
+        }
+      })
+      .then(data => {
+        recordCtx.loginHandler(data.idToken);
+      });
   };
 
   return (

@@ -1,11 +1,20 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import RecordContext from "../context/record-context";
 import classes from "./Header.module.css";
 
 const Header = () => {
+  const recordCtx = useContext(RecordContext);
+
+  const logoutHandler = () => {
+    recordCtx.logoutHandler();
+  };
+
   return (
     <div className={classes.header}>
       <Link to="/main">메인페이지</Link>
-      <Link to="/login">로그인페이지</Link>
+      {recordCtx.isLogin && <p onClick={logoutHandler}>로그아웃</p>}
+      {!recordCtx.isLogin && <Link to="/login">로그인페이지</Link>}
     </div>
   );
 };
