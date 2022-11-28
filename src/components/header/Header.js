@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <div className={classes.header}>
       <Link to="/main">메인페이지</Link>
-      {recordCtx.isLogin && <p onClick={logoutHandler}>로그아웃</p>}
+      {recordCtx.isLogin && <Link onClick={logoutHandler}>로그아웃</Link>}
       {!recordCtx.isLogin && <Link to="/login">로그인페이지</Link>}
     </div>
   );

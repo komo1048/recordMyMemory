@@ -1,9 +1,20 @@
 import CreateButton from "../createButton/CreateButton";
 import Card from "../card/Card";
 import classes from "../container/Container.module.css";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
+import RecordContext from "../context/record-context";
+import { useNavigate } from "react-router-dom";
 
 const Container = () => {
+  const recordCtx = useContext(RecordContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!recordCtx.isLogin) {
+      navigate("../login");
+    }
+  }, [navigate, recordCtx.isLogin]);
+
   const [memoryList, setMemoryList] = useState([]);
 
   const fetchMemory = useCallback(async () => {
