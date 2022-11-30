@@ -27,7 +27,6 @@ const Login = () => {
       .then(res => {
         setIsLoading(false);
         if (res.ok) {
-          navigate("/main");
           return res.json();
         } else {
           return res.json().then(data => {
@@ -42,6 +41,7 @@ const Login = () => {
       })
       .then(data => {
         recordCtx.loginHandler(data.idToken);
+        navigate("/main");
       });
   };
 
