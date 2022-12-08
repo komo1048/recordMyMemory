@@ -4,10 +4,15 @@ import classes from "../container/Container.module.css";
 import { useCallback, useContext, useEffect, useState } from "react";
 import RecordContext from "../context/record-context";
 import { useNavigate } from "react-router-dom";
+import Pagination from "../footer/Pagination";
 
 const Container = () => {
   const recordCtx = useContext(RecordContext);
   const navigate = useNavigate();
+
+  const [limit, setLimit] = useState(16);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   useEffect(() => {
     if (!recordCtx.isLogin) {
@@ -84,10 +89,15 @@ const Container = () => {
   return (
     <div className={classes.box}>
       <CreateButton onAddMemory={onAddMemory} />
-      <div className={classes.container}>
-        {memoryList.map(memory => {
-          return <Card key={memory.id} memory={memory} deleteMemory={onDeleteMemory} upDateMemory={onUpdateMemory} />;
-        })}
+      <div>
+        <div className={classes.container}>
+          {memoryList.slice(offset, offset + limit).map(memory => (
+            <Card key={memory.id} memory={memory} deleteMemory={onDeleteMemory} upDateMemory={onUpdateMemory} />
+          ))}
+          <footer className={classes.footer}>
+            <Pagination total={memoryList.length} limit={limit} page={page} setPage={setPage} />
+          </footer>
+        </div>
       </div>
     </div>
   );
