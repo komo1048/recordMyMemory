@@ -1,8 +1,10 @@
+import classes from "./Pagination.module.css";
+
 const Pagination = ({ total, limit, page, setPage }) => {
   const pageNumber = Math.ceil(total / limit);
 
   return (
-    <div>
+    <div className={classes.paginationBtn}>
       <button onClick={() => setPage(page - 1)} disabled={page === 1}>
         &lt;
       </button>

@@ -89,15 +89,14 @@ const Container = () => {
   return (
     <div className={classes.box}>
       <CreateButton onAddMemory={onAddMemory} />
-      <div>
-        <div className={classes.container}>
-          {memoryList.slice(offset, offset + limit).map(memory => (
-            <Card key={memory.id} memory={memory} deleteMemory={onDeleteMemory} upDateMemory={onUpdateMemory} />
-          ))}
-          <footer className={classes.footer}>
-            <Pagination total={memoryList.length} limit={limit} page={page} setPage={setPage} />
-          </footer>
-        </div>
+      <div className={classes.container}>
+        {memoryList.slice(offset, offset + limit).map(memory => (
+          <Card key={memory.id} memory={memory} deleteMemory={onDeleteMemory} upDateMemory={onUpdateMemory} />
+        ))}
+
+        <footer className={classes.footer}>
+          <Pagination total={memoryList.length} limit={limit} page={page} setPage={setPage} />
+        </footer>
       </div>
     </div>
   );

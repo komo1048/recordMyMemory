@@ -1,0 +1,42 @@
+.box {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #98a8f8;
+  clear: both;
+  overflow: hidden;
+}
+.container {
+  border: 1px solid;
+  width: 80%;
+  height: 80%;
+  position: fixed;
+  border-radius: 10px;
+
+  top: 100px;
+  left: 150px;
+  background-color: #faf7f0;
+
+  float: left;
+
+  padding: 15px 10px;
+
+  box-shadow: 5px 5px 5px 5px gray;
+  flex: 1;
+}
+
+.myCards {
+  border: 1px solid;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+
+  margin-right: 5px;
+  margin-bottom: 10px;
+  width: 1350px;
+}
+
+.myCardDeleteBtn {
+  position: absolute;
+}
