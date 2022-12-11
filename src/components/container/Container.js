@@ -24,7 +24,7 @@ const Container = () => {
 
   const fetchMemory = useCallback(async () => {
     console.log("fetchMemory Running");
-    const response = await fetch("https://react-http-38d3b-default-rtdb.firebaseio.com/memory.json");
+    const response = await fetch("https://react-http-38d3b-default-rtdb.firebaseio.com/memoryTest.json");
     const data = await response.json();
 
     const loadedMemory = [];
@@ -44,7 +44,7 @@ const Container = () => {
 
   const onAddMemory = async item => {
     console.log("onAddMemory Running");
-    await fetch("https://react-http-38d3b-default-rtdb.firebaseio.com/memory.json", {
+    await fetch("https://react-http-38d3b-default-rtdb.firebaseio.com/memoryTest.json", {
       body: JSON.stringify(item),
       method: "POST",
       headers: {

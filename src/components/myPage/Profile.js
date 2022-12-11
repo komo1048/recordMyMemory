@@ -4,7 +4,7 @@ const Profile = () => {
   const [myMemoryLists, setMyMemoryLists] = useState([]);
   const fetchMemory = useCallback(async () => {
     console.log("fetchMemory Running");
-    const response = await fetch("https://react-http-38d3b-default-rtdb.firebaseio.com/memory.json");
+    const response = await fetch("https://react-http-38d3b-default-rtdb.firebaseio.com/memoryTest.json");
     const data = await response.json();
 
     const loadedMemory = [];
