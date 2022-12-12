@@ -5,6 +5,7 @@ const RecordContext = createContext({
   token: "",
   loginHandler: token => {},
   logoutHandler: () => {},
+  deleteMemory: () => {},
 });
 
 export const RecordContextProvider = props => {
@@ -23,10 +24,17 @@ export const RecordContextProvider = props => {
     localStorage.removeItem("token");
   };
 
+  const deleteMemory = async memoryId => {
+    await fetch(`https://react-http-38d3b-default-rtdb.firebaseio.com/memoryTest/${memoryId}.json`, {
+      method: "DELETE",
+    });
+  };
+
   const context = {
     isLogin: userIsLogin,
     loginHandler,
     logoutHandler,
+    deleteMemory,
   };
 
   return <RecordContext.Provider value={context}>{props.children}</RecordContext.Provider>;

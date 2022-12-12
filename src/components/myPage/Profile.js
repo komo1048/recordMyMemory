@@ -1,7 +1,10 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useContext } from "react";
+import RecordContext from "../context/record-context";
+import MyMemoryLists from "./MyMemoryLists";
 import classes from "./Profile.module.css";
 const Profile = () => {
   const [myMemoryLists, setMyMemoryLists] = useState([]);
+
   const fetchMemory = useCallback(async () => {
     console.log("fetchMemory Running");
     const response = await fetch("https://react-http-38d3b-default-rtdb.firebaseio.com/memoryTest.json");
@@ -25,6 +28,15 @@ const Profile = () => {
     fetchMemory();
   }, [fetchMemory]);
 
+  const recordCtx = useContext(RecordContext);
+
+  const onDeleteMemory = async myMemoryId => {
+    console.log(myMemoryId);
+    await recordCtx.deleteMemory(myMemoryId);
+
+    fetchMemory();
+  };
+
   return (
     <div className={classes.box}>
       <div className={classes.container}>
@@ -33,16 +45,9 @@ const Profile = () => {
         <hr />
         <button>비밀번호 변경</button>
         <hr />
-        <h2>게시물 목록</h2>
+        <h3>게시물 목록</h3>
         {myMemoryLists.map((myMemoryList, index) => {
-          return (
-            <>
-              <div className={classes.myCards}>
-                <span>{index + 1}</span> | <span>{myMemoryList.title}</span> | <>{myMemoryList.content}</>
-              </div>
-              <button className={classes.myCardDeleteBtn}>x</button>
-            </>
-          );
+          return <MyMemoryLists index={index} myMemoryList={myMemoryList} deleteMemory={onDeleteMemory} />;
         })}
       </div>
     </div>

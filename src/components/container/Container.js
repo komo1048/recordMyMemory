@@ -10,7 +10,7 @@ const Container = () => {
   const recordCtx = useContext(RecordContext);
   const navigate = useNavigate();
 
-  const [limit, setLimit] = useState(16);
+  const limit = 16;
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
@@ -62,9 +62,7 @@ const Container = () => {
   const onDeleteMemory = async memoryId => {
     console.log(memoryId);
 
-    await fetch(`https://react-http-38d3b-default-rtdb.firebaseio.com/memory/${memoryId}.json`, {
-      method: "DELETE",
-    });
+    await recordCtx.deleteMemory(memoryId);
 
     fetchMemory();
   };
@@ -79,7 +77,7 @@ const Container = () => {
       memoryBody.image = memory.image;
     }
 
-    await fetch(`https://react-http-38d3b-default-rtdb.firebaseio.com/memory/${memory.id}.json`, {
+    await fetch(`https://react-http-38d3b-default-rtdb.firebaseio.com/memoryTest/${memory.id}.json`, {
       method: "PATCH",
       body: JSON.stringify(memoryBody),
     });
