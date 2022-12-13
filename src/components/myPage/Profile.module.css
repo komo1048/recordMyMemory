@@ -24,19 +24,3 @@
   box-shadow: 5px 5px 5px 5px gray;
   flex: 1;
 }
-
-.myCards {
-  border: 1px solid;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: inline-block;
-
-  margin-right: 5px;
-  margin-bottom: 10px;
-  width: 1350px;
-}
-
-.myCardDeleteBtn {
-  position: absolute;
-}

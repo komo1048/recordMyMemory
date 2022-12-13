@@ -1,4 +1,4 @@
-import classes from "./Profile.module.css";
+import classes from "./MyMemoryLists.module.css";
 
 const MyMemoryLists = ({ index, myMemoryList, deleteMemory }) => {
   const onDeleteMemory = () => {
