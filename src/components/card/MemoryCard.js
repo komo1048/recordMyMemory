@@ -1,12 +1,7 @@
 import { useRef, useState } from "react";
 import classes from "./MemoryCard.module.css";
 
-const MemoryCard = ({
-  viewMemory,
-  onRequestClose,
-  deleteMemory,
-  upDateMemory,
-}) => {
+const MemoryCard = ({ viewMemory, onRequestClose, deleteMemory, upDateMemory }) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [imagePreview, setImagePreview] = useState("");
 
@@ -19,7 +14,7 @@ const MemoryCard = ({
     deleteMemory(viewMemory.id);
   };
 
-  const imageHandler = (e) => {
+  const imageHandler = e => {
     let reader = new FileReader();
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]);
@@ -32,10 +27,10 @@ const MemoryCard = ({
   };
 
   const onMemoryCardUpdate = () => {
-    setIsUpdate((prevState) => !prevState);
+    setIsUpdate(prevState => !prevState);
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = e => {
     e.preventDefault();
     console.log("submit running");
     upDateMemory({
@@ -45,7 +40,7 @@ const MemoryCard = ({
       content: inputContent.current.value,
       image: imagePreview,
     });
-    setIsUpdate((prevState) => !prevState);
+    setIsUpdate(prevState => !prevState);
   };
 
   let showModal;
@@ -56,11 +51,7 @@ const MemoryCard = ({
           <button type="submit" className={classes.updateBtn}>
             저장
           </button>
-          <button
-            type="button"
-            className={classes.deleteBtn}
-            onClick={onMemoryCardDelete}
-          >
+          <button type="button" className={classes.deleteBtn} onClick={onMemoryCardDelete}>
             삭제
           </button>
           <article className={classes.post_content}>
@@ -69,13 +60,7 @@ const MemoryCard = ({
                 <label htmlFor="inputTitle">제목 : </label>
               </dt>
               <dd>
-                <input
-                  type="text"
-                  className={classes.inputTitle}
-                  id="inputTitle"
-                  ref={inputTitle}
-                  defaultValue={viewMemory.title}
-                />
+                <input type="text" className={classes.inputTitle} id="inputTitle" ref={inputTitle} defaultValue={viewMemory.title} />
               </dd>
             </dl>
             <dl className={classes.meta}>
@@ -83,12 +68,7 @@ const MemoryCard = ({
                 <label htmlFor="inputDate">날짜 : </label>
               </dt>
               <dd>
-                <input
-                  type="date"
-                  id="inputDate"
-                  defaultValue={viewMemory.date}
-                  ref={inputDate}
-                />
+                <input type="date" id="inputDate" defaultValue={viewMemory.date} ref={inputDate} />
               </dd>
             </dl>
             <dl className={classes.meta}>
@@ -104,14 +84,7 @@ const MemoryCard = ({
                 <label htmlFor="inputContent">내용 : </label>
               </dt>
               <dd>
-                <textarea
-                  id="inputContent"
-                  rows="5"
-                  cols="54"
-                  defaultValue={viewMemory.content}
-                  ref={inputContent}
-                  placeholder="내용을 입력해주세요."
-                ></textarea>
+                <textarea id="inputContent" rows="5" cols="54" defaultValue={viewMemory.content} ref={inputContent} placeholder="내용을 입력해주세요."></textarea>
               </dd>
             </dl>
           </article>

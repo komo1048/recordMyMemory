@@ -18,6 +18,7 @@ const Profile = () => {
         title: data[key].title,
         date: data[key].date,
         content: data[key].content,
+        image: data[key].image,
       });
     }
 
@@ -46,9 +47,9 @@ const Profile = () => {
         <button>비밀번호 변경</button>
         <hr />
         <h3>게시물 목록</h3>
-        {myMemoryLists.map((myMemoryList, index) => {
-          return <MyMemoryLists index={index} myMemoryList={myMemoryList} deleteMemory={onDeleteMemory} />;
-        })}
+        {myMemoryLists.map((myMemoryList, index) => (
+          <MyMemoryLists key={myMemoryList.id} index={index} myMemoryList={myMemoryList} deleteMemory={onDeleteMemory} />
+        ))}
       </div>
     </div>
   );
