@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import RecordContext from "../context/record-context";
 import MyMemoryLists from "./MyMemoryLists";
 import classes from "./Profile.module.css";
@@ -37,6 +38,13 @@ const Profile = () => {
 
     fetchMemory();
   };
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!recordCtx.isLogin) {
+      navigate("../login");
+    }
+  }, [navigate, recordCtx.isLogin]);
 
   return (
     <div className={classes.box}>

@@ -5,6 +5,7 @@ import classes from "./Join.module.css";
 const Join = () => {
   const idInputRef = useRef("");
   const passwordInputRef = useRef("");
+  const nicknameInputRef = useRef("");
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -14,6 +15,8 @@ const Join = () => {
 
     const enteredId = idInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
+    const enteredNickname = nicknameInputRef.current.value;
+
     setIsLoading(true);
     // validation check 생략 추후 추가
 
@@ -50,6 +53,7 @@ const Join = () => {
           <input type="text" className={classes.id} placeholder="아이디" ref={idInputRef} required />
           <input type="password" className={classes.password} placeholder="비밀번호(6자리 이상 입력해 주세요)" ref={passwordInputRef} required />
           <input type="password" className={classes.password} placeholder="비밀번호확인" />
+          <input type="text" className="nickname" placeholder="닉네임" ref={nicknameInputRef} required />
           <button type="submit" className={classes.joinBtn}>
             {isLoading ? "회원가입 확인중 입니다..." : "회원가입"}
           </button>
