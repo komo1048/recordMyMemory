@@ -15,7 +15,7 @@ const Login = () => {
   const submitHandler = e => {
     e.preventDefault();
     setIsLoading(true);
-    fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAlDrx7XqvhriNau6Bp6169ejBtLPJvycw", {
+    fetch("https://react-http-38d3b-default-rtdb.firebaseio.com/userList.json", {
       method: "POST",
       body: JSON.stringify({
         email: idInputRef.current.value,

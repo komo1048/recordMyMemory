@@ -21,9 +21,9 @@ const Join = () => {
     // validation check 생략 추후 추가
 
     //isLogin 검사
-    fetch("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAlDrx7XqvhriNau6Bp6169ejBtLPJvycw", {
+    fetch("https://react-http-38d3b-default-rtdb.firebaseio.com/userList.json", {
       method: "POST",
-      body: JSON.stringify({ email: enteredId, password: enteredPassword, returnSecureToken: true }),
+      body: JSON.stringify({ email: enteredId, password: enteredPassword, nickname: enteredNickname }),
       headers: {
         "Content-Type": "application/json",
       },
